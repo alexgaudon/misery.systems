@@ -1,0 +1,11 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M90 10 L115 75 L185 60 L125 110 L160 185 L100 135 L45 185 L75 110 L15 60 L85 75 Z"
+        fill="#ffeb00"
+        stroke="black"
+        stroke-width="3"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+    <text x="100" y="90" font-size="18" text-anchor="middle" fill="black" font-family="Comic Sans MS, sans-serif">
+    your did it
+  </text>
+</svg>

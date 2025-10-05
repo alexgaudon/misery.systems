@@ -1,0 +1,49 @@
+---
+import StarIcon from "../components/StarIcon.astro";
+import Layout from "./layout.astro";
+---
+<Layout>
+    <h1 class="text-2xl font-semibold mb-2">Services</h1>
+  <p class="text-lg mb-6">
+    This is the services page for misery.systems.<br />
+    Here you can find all the services that I'm hosting on my homelab.
+  </p>
+  <section class="mb-8">
+    <h2 class="text-2xl font-semibold mb-2">Self-Hosted Services</h2>
+    <ul class="list-disc list-inside">
+        <li>
+            <a href="https://github.com/AlexGaudon/tallyo" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Tallyo</a>
+            <StarIcon />
+            - A personal finance tracker (RIP <a href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Mint</a>)
+        </li>
+        <li>
+            <a href="https://github.com/AlexGaudon/overs.sh" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">overs.sh</a>
+            <StarIcon />
+            - A simple tool to transfer files between servers over ssh.
+        </li>
+        <li>
+            <a href="https://github.com/AlexGaudon/misery.systems" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">misery.systems</a>
+            <StarIcon />
+            - This website.
+        </li>
+        <li>
+            <a href="https://sonarr.tv/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Sonarr</a> - TV series management and automation.
+        </li>
+        <li>
+            <a href="https://radarr.video/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Radarr</a> - Movie collection management and automation.
+        </li>
+        <li>
+            <a href="https://www.bazarr.media/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Bazarr</a> - Subtitle management and automation for Sonarr/Radarr.
+        </li>
+        <li>
+            <a href="https://jellyfin.org/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Jellyfin</a> - Media server for streaming movies, TV, and music.
+        </li>
+        <li>
+            <a href="https://www.truenas.com/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">TrueNAS</a> - Open source NAS (Network Attached Storage) for file storage and sharing.
+        </li>
+        <li>
+            <a href="https://immich.app/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">immich</a> - Self-hosted photo and video backup solution.
+        </li>
+    </ul>
+  </section>
+</Layout>

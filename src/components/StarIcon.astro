@@ -1,0 +1,12 @@
+---
+/*
+  StarIcon.astro
+  Astro component for indicating "Built by me" projects.
+  Now uses the Preview React component for hover preview.
+*/
+import Preview from "./Preview";
+---
+
+<span class="ml-1 align-text-bottom" style="vertical-align: text-bottom;">
+  <Preview src="/star.svg" alt="Built by me" zoom={3} />
+</span>
