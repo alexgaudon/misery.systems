@@ -13,4 +13,24 @@ export default defineConfig({
   integrations: [react()],
   adapter: bun(),
   output: "server",
+  headers: [
+    {
+      source: '/rack-min.jpg',
+      headers: {
+        'Cache-Control': 'public, max-age=31536000'
+      }
+    },
+    {
+      source: '/star.svg',
+      headers: {
+        'Cache-Control': 'public, max-age=31536000'
+      }
+    },
+    {
+      source: '/favicon.svg',
+      headers: {
+        'Cache-Control': 'public, max-age=31536000'
+      }
+    }
+  ]
 });
