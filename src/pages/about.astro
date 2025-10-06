@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import rackImage from '../../public/rack-min.jpg';
 import { getRuntimeEnv } from "../lib/runtimeEnv";
 import Layout from "./layout.astro";
 const runtimeEnv = getRuntimeEnv();
@@ -17,29 +19,46 @@ const topPosition = runtimeEnv.nodeName ? nodePositions[runtimeEnv.nodeName] : 5
 ---
 
 <Layout>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-            <h1 class="text-2xl font-semibold mb-2">About</h1>
-            <p class="text-lg mb-4">
-                <b>misery.systems</b> is just my homelab.
-            </p>
-            <p class="text-lg mb-4">
-                I run random stuff here and mess with kubernetes and linux.
-            </p>
-            <p class="text-lg mb-4">
-                It's mostly for learning, breaking things, and fixing them (sometimes).
-            </p>
-        </div>
-        <div class="relative">
-            <img src="/rack-min.jpg" alt="Homelab" class="w-full rounded shadow-md" style="aspect-ratio: 1968 / 3485;" loading="eager" fetchpriority="high" />
-            {runtimeEnv.nodeName && (
-                <div 
-                    class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-black px-3 py-2 rounded-lg shadow-lg font-bold text-sm sm:text-base border-2 border-black"
-                    style={`top: ${topPosition}%;`}
-                >
-                    &larr; You are here &rarr;
-                </div>
-            )}
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
+            <!-- Text Content -->
+            <div class="space-y-4 sm:space-y-6 lg:pr-8">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About</h1>
+                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
+                    <b class="font-semibold">misery.systems</b> is just my homelab.
+                </p>
+                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
+                    I run random stuff here and mess with kubernetes and linux.
+                </p>
+                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
+                    It's mostly for learning, breaking things, and fixing them (sometimes).
+                </p>
+            </div>
+            
+            <!-- Rack Image -->
+            <div class="relative mt-6 lg:mt-0">
+                <Image 
+                    src={rackImage} 
+                    alt="Homelab rack with servers" 
+                    class="w-full rounded-lg shadow-xl" 
+                    loading="eager" 
+                />
+                {runtimeEnv.nodeName && (
+                    <div 
+                        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                            bg-yellow-400 text-black px-2 py-1 sm:px-3 sm:py-2 
+                            rounded-md sm:rounded-lg shadow-lg 
+                            font-bold text-xs sm:text-sm lg:text-base 
+                            border-2 border-black
+                            whitespace-nowrap
+                            z-10"
+                        style={`top: ${topPosition}%;`}
+                    >
+                        <span class="hidden sm:inline">&larr; You are here &rarr;</span>
+                        <span class="sm:hidden">You are here</span>
+                    </div>
+                )}
+            </div>
         </div>
     </div>
 </Layout>

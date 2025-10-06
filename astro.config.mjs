@@ -11,6 +11,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [react()],
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
+  },
   adapter: node({
     mode: 'standalone',
   }),
