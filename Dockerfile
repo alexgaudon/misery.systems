@@ -1,22 +1,23 @@
-FROM node:22-alpine AS build
+FROM node:22-alpine AS base
 WORKDIR /app
 
- COPY package*.json ./
- RUN npm ci
+COPY package.json package-lock.json ./
 
+FROM base AS prod-deps
+RUN npm ci --omit=dev
+
+FROM base AS build-deps
+RUN npm ci
+
+FROM build-deps AS build
 COPY . .
 RUN npm run build
 
-FROM node:22-alpine AS prod
-WORKDIR /app
-
-COPY --from=build /app/package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
-
-COPY --from=build /app ./
+FROM base AS runtime
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
 
 ENV HOST=0.0.0.0
 ENV PORT=4321
 EXPOSE 4321
-
 CMD ["node", "./dist/server/entry.mjs"]
