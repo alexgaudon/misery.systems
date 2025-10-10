@@ -2,11 +2,12 @@
 /*
   StarIcon.astro
   Astro component for indicating "Built by me" projects.
-  Now uses the Preview React component for hover preview.
+  Simple star icon, no preview.
 */
-import Preview from "./Preview";
 ---
 
 <span class="ml-1 align-text-bottom" style="vertical-align: text-bottom;">
-  <Preview src="/star.svg" alt="Built by me" zoom={3} />
+  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-label="Built by me" class="inline text-yellow-400 drop-shadow">
+    <path d="M10 2.5l2.47 5.41 5.96.57c.66.06.93.86.43 1.31l-4.54 3.98 1.45 5.75c.17.68-.6 1.2-1.2.85L10 16.02l-5.08 3.35c-.6.36-1.37-.17-1.2-.85l1.45-5.75-4.54-3.98a.82.82 0 0 1 .43-1.31l5.96-.57L10 2.5z"/>
+  </svg>
 </span>

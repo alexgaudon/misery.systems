@@ -8,8 +8,6 @@ const runtimeEnv = getRuntimeEnv();
 // Map node names to their positions in the rack (percentage from top)
 // Based on the rack image: GRIEF, DESPAIR, BLEAK, SORROW, GLOOM (top to bottom)
 const nodePositions: Record<string, number> = {
-    "k8s-master-1": 44,  // GRIEF (top HP server)
-    "k8s-master-2": 57,  // DESPAIR (second HP server)
     "k8s-worker-1": 70,  // BLEAK (first ThinkCentre)
     "k8s-worker-2": 78,  // SORROW (second ThinkCentre)
     "k8s-worker-3": 87,  // GLOOM (third ThinkCentre)
