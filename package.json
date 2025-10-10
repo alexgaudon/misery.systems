@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npx astro dev",
-    "build": "npx astro build",
-    "preview": "npx astro preview",
-    "astro": "npx astro",
-    "start": "node ./dist/server/entry.mjs"
+    "dev": "bunx --bun astro dev",
+    "build": "bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "astro": "bunx --bun astro",
+    "start": "bun run ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
