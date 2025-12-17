@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import rackImage from '../../public/rack-min.jpg';
 import { getRuntimeEnv } from "../lib/runtimeEnv";
 import Layout from "./layout.astro";
 const runtimeEnv = getRuntimeEnv();
@@ -8,12 +6,21 @@ const runtimeEnv = getRuntimeEnv();
 // Map node names to their positions in the rack (percentage from top)
 // Based on the rack image: GRIEF, DESPAIR, BLEAK, SORROW, GLOOM (top to bottom)
 const nodePositions: Record<string, number> = {
-    "k8s-worker-1": 70,  // BLEAK (first ThinkCentre)
-    "k8s-worker-2": 78,  // SORROW (second ThinkCentre)
-    "k8s-worker-3": 87,  // GLOOM (third ThinkCentre)
+	"k8s-worker-1": 63, // BLEAK (first ThinkCentre)
+	"k8s-worker-2": 73, // SORROW (second ThinkCentre)
+	"k8s-worker-3": 82.5, // GLOOM (third ThinkCentre)
 };
 
-const topPosition = runtimeEnv.nodeName ? nodePositions[runtimeEnv.nodeName] : 50;
+const displayNames = {
+	"k8s-worker-1": "bleak",
+	"k8s-worker-2": "distress",
+	"k8s-worker-3": "sorrow",
+	"???": "magic",
+};
+
+const topPosition = runtimeEnv.nodeName
+	? nodePositions[runtimeEnv.nodeName]
+	: 50;
 ---
 
 <Layout>
@@ -35,8 +42,9 @@ const topPosition = runtimeEnv.nodeName ? nodePositions[runtimeEnv.nodeName] : 5
             
             <!-- Rack Image -->
             <div class="relative mt-6 lg:mt-0">
-                <Image 
-                    src={rackImage} 
+                <p class="text-xs font-mono">This request was served by {displayNames[runtimeEnv.nodeName ?? '???']}.</p>
+                <img 
+                    src="/rackmin.webp" 
                     alt="Homelab rack with servers" 
                     class="w-full rounded-lg shadow-xl" 
                     loading="eager" 
@@ -44,10 +52,10 @@ const topPosition = runtimeEnv.nodeName ? nodePositions[runtimeEnv.nodeName] : 5
                 {runtimeEnv.nodeName && (
                     <div 
                         class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                            bg-yellow-400 text-black px-2 py-1 sm:px-3 sm:py-2 
-                            rounded-md sm:rounded-lg shadow-lg 
-                            font-bold text-xs sm:text-sm lg:text-base 
-                            border-2 border-black
+                            bg-yellow-400 text-black px-1.5 py-0.5 sm:px-2 sm:py-1 
+                            rounded shadow-md 
+                            font-semibold text-[10px] sm:text-xs 
+                            border border-black
                             whitespace-nowrap
                             z-10"
                         style={`top: ${topPosition}%;`}
