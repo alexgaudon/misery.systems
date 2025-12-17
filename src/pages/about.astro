@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import { getRuntimeEnv } from "../lib/runtimeEnv";
 import Layout from "./layout.astro";
-import rackImage from "../../public/rackmin.webp";
 const runtimeEnv = getRuntimeEnv();
 
 // Map node names to their positions in the rack (percentage from top)
@@ -45,8 +43,8 @@ const topPosition = runtimeEnv.nodeName
             <!-- Rack Image -->
             <div class="relative mt-6 lg:mt-0">
                 <p class="text-xs font-mono" style="font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; font-size: 0.75rem; line-height: 1rem;">This request was served by {displayNames[runtimeEnv.nodeName ?? '???']}.</p>
-                <Image
-                    src={rackImage}
+                <img
+                    src="/rackmin.webp"
                     alt="Homelab rack with servers" 
                     class="w-full rounded-lg shadow-xl" 
                     loading="eager" 
