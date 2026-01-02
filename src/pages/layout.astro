@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import Navbar from '../components/Navbar.astro';
-import '../styles/global.css';
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -11,6 +11,7 @@ const currentPath = Astro.url.pathname;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>misery.systems {currentPath != '/' && ` | ${currentPath.replaceAll('/', '')}`}</title>
 	</head>
 	<body class="bg-slate-800 text-white font-mono">
 		<Navbar currentPath={currentPath} />
