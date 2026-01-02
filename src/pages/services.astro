@@ -3,11 +3,13 @@ import StarIcon from "../components/StarIcon.astro";
 import Layout from "./layout.astro";
 ---
 <Layout>
+  <section class="mb-8">
     <h1 class="text-2xl font-semibold mb-2">Services</h1>
-  <p class="text-lg mb-6">
-    This is the services page for misery.systems.<br />
-    Here you can find all the services that I'm hosting on my homelab.
-  </p>
+    <p class="mb-4">
+      This is the services page for misery.systems.<br />
+      Here you can find all the services that I'm hosting on my homelab.
+    </p>
+  </section>
   <section class="mb-8">
     <h2 class="text-2xl font-semibold mb-2">Self-Hosted Services</h2>
     <ul class="list-disc list-inside">
@@ -60,10 +62,8 @@ import Layout from "./layout.astro";
             <a href="https://immich.app/" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">immich</a> - Self-hosted photo and video backup solution.
         </li>
     </ul>
-
-</section>
-<div class="mx-auto text-center text-stone-400 opacity-50">
+  </section>
+  <div class="text-center text-stone-400 mb-8">
     <StarIcon /> means i built it
-    <br>
-</div>
+  </div>
 </Layout>

@@ -24,47 +24,44 @@ const topPosition = runtimeEnv.nodeName
 ---
 
 <Layout>
-    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
-            <!-- Text Content -->
-            <div class="space-y-4 sm:space-y-6 lg:pr-8">
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About</h1>
-                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
-                    <b class="font-semibold">misery.systems</b> is just my homelab.
-                </p>
-                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
-                    I run random stuff here and mess with kubernetes and linux.
-                </p>
-                <p class="text-base sm:text-lg lg:text-xl leading-relaxed">
-                    It's mostly for learning, breaking things, and fixing them (sometimes).
-                </p>
-            </div>
-            
-            <!-- Rack Image -->
-            <div class="relative mt-6 lg:mt-0">
-                <p class="text-sm font-mono" style="font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; line-height: 1rem;">This request was served by {displayNames[runtimeEnv.nodeName ?? '???']}.</p>
-                <img
-                    src="/rack-min.jpg"
-                    alt="Homelab rack with servers" 
-                    class="w-full rounded-lg shadow-xl" 
-                    loading="eager" 
-                />
-                {runtimeEnv.nodeName && (
-                    <div 
-                        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                            bg-yellow-400 text-black px-1.5 py-0.5 sm:px-2 sm:py-1 
-                            rounded shadow-md 
-                            font-semibold text-[10px] sm:text-xs 
-                            border border-black
-                            whitespace-nowrap
-                            z-10"
-                        style={`top: ${topPosition}%;`}
-                    >
-                        <span class="hidden sm:inline">&larr; You are here &rarr;</span>
-                        <span class="sm:hidden">You are here</span>
-                    </div>
-                )}
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start mb-8">
+        <!-- Text Content -->
+        <div>
+            <h1 class="text-2xl font-semibold mb-2">About</h1>
+            <p class="mb-4">
+                <b class="font-semibold">misery.systems</b> is just my homelab.
+            </p>
+            <p class="mb-4">
+                I run random stuff here and mess with kubernetes and linux.
+            </p>
+            <p>
+                It's mostly for learning, breaking things, and fixing them (sometimes).
+            </p>
+        </div>
+        
+        <!-- Rack Image -->
+        <div class="relative">
+            <p class="text-sm text-stone-400 mb-2">This request was served by {displayNames[runtimeEnv.nodeName ?? '???']}.</p>
+            <img
+                src="/rack-min.jpg"
+                alt="Homelab rack with servers" 
+                class="w-full rounded-lg shadow-xl" 
+                loading="eager" 
+            />
+            {runtimeEnv.nodeName && (
+                <div 
+                    class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                        bg-yellow-400 text-black px-2 py-1 
+                        rounded shadow-md 
+                        font-semibold text-xs 
+                        border border-black
+                        whitespace-nowrap
+                        z-10"
+                    style={`top: ${topPosition}%;`}
+                >
+                    &larr; You are here &rarr;
+                </div>
+            )}
         </div>
     </div>
 </Layout>
