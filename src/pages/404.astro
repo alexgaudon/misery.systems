@@ -2,29 +2,41 @@
 import Layout from "./layout.astro";
 ---
 <Layout>
-	<h1 class="text-2xl font-semibold mb-2">404 - Page Not Found</h1>
-	<p class="text-lg mb-6">
-		The page you're looking for doesn't exist.<br />
-	</p>
-	<section class="mb-8">
-		<h2 class="text-2xl font-semibold mb-2">What happened?</h2>
-		<p>
-			You might have mistyped the URL, or the page has been moved or deleted.<br />
-			This is part of the misery that comes with running a homelab.
-		</p>
-	</section>
-	<section class="mb-8">
-		<h2 class="text-2xl font-semibold mb-2">What now?</h2>
-		<ul class="list-disc list-inside">
-			<li>
-				<a href="/" class="text-blue-400 hover:underline">Go back to the home page</a>
-			</li>
-			<li>
-				<a href="/about" class="text-blue-400 hover:underline">Learn more about misery.systems</a>
-			</li>
-			<li>
-				<a href="/services" class="text-blue-400 hover:underline">Check out the services</a>
-			</li>
-		</ul>
-	</section>
+  <div class="space-y-8">
+    <section class="border-2 border-white p-6">
+      <h1>404 - Page Not Found</h1>
+      <p>
+        The page you're looking for doesn't exist.
+      </p>
+    </section>
+
+    <div class="text-center text-sm tracking-widest">+ + +</div>
+
+    <section class="border-2 border-white p-6">
+      <h2>What happened?</h2>
+      <p>
+        You might have mistyped the URL, or the page has been moved or deleted.
+      </p>
+      <p>
+        This is part of the misery that comes with running a homelab.
+      </p>
+    </section>
+
+    <div class="text-center text-sm tracking-widest">+ + +</div>
+
+    <section class="border-2 border-white p-6">
+      <h2>What now?</h2>
+      <ul class="block-list">
+        <li>
+          <a href="/">Go back to the home page</a>
+        </li>
+        <li>
+          <a href="/about">Learn more about misery.systems</a>
+        </li>
+        <li>
+          <a href="/services">Check out the services</a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </Layout>

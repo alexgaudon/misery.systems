@@ -1,35 +1,34 @@
 ---
 import Layout from "./layout.astro";
 ---
-<Layout>
-  <section class="mb-8">
-    <h1 class="text-2xl font-semibold mb-2">What is misery.systems?</h1>
-    <p class="mb-4">
-		misery.systems is the affectionate name for my homelab.<br />
-		It's a collection of projects and tools that I've built or am working on.
-    </p>
-  </section>
-  <section class="mb-8">
-    <h1 class="text-2xl font-semibold mb-2">Why misery.systems?</h1>
-    <p class="mb-4">
-		misery.systems was chosen when I decided to add a Kubernetes cluster to my homelab.<br/>
-		For people with experience in Kubernetes, that might make sense.<br/>
-		But it's a reference to the fact that Kubernetes is a complex system that is often a source of misery.<br/>
-    </p>
-  </section>
-  <section class="mb-8">
-    <h1 class="text-2xl font-semibold mb-2">Get Started</h1>
-    <ul class="list-disc list-inside">
-      <li>
-        <a href="/about" class="text-blue-400 hover:underline">Learn more about misery.systems</a>
-      </li>
-      <li>
-        <a href="/services" class="text-blue-400 hover:underline">See the self-hosted services and tools</a>
-      </li>
-      <li>
-        Check out open source projects on <a href="https://github.com/AlexGaudon" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </li>
-    </ul>
-  </section>
 
+<Layout>
+  <div class="space-y-8">
+    <section class="border-2 border-white p-6">
+      <h1>What is misery.systems?</h1>
+      <p>
+        misery.systems is the affectionate name for my homelab.
+      </p>
+      <p>
+        It's a collection of projects and tools that I've built or am working on.
+      </p>
+    </section>
+
+    <div class="text-center text-sm tracking-widest">+ + +</div>
+
+    <section class="border-2 border-white p-6">
+      <h1>Why misery.systems?</h1>
+      <p>
+        misery.systems was chosen when I decided to add a Kubernetes cluster to my homelab.
+      </p>
+      <p>
+        For people with experience in Kubernetes, that might make sense.
+      </p>
+      <p>
+        But it's a reference to the fact that Kubernetes is a complex system that is often a source of misery.
+      </p>
+    </section>
+
+
+  </div>
 </Layout>
