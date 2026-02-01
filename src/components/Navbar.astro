@@ -5,28 +5,33 @@ interface Props {
 
 const { currentPath } = Astro.props;
 
+const filePath = currentPath === '/' ? 'index.md' : currentPath.split('/').filter(Boolean).pop() + '.md';
+
 const navLinks = [
-	{ href: "/", label: "misery.systems" },
+	{ href: "/", label: "index" },
 	{ href: "/about", label: "about" },
 	{ href: "/services", label: "services" },
 ];
 ---
 
-<nav class="border-b-2 border-white">
-	<div class="max-w-3xl mx-auto px-4">
-		<div class="flex">
+<nav class="border-b-2 border-white bg-black">
+	<div class="max-w-3xl mx-auto px-4 py-2">
+		<div class="flex gap-4 mb-2">
 			{navLinks.map((link) => (
 				<a
 					href={link.href}
-					class={`px-4 py-3 uppercase tracking-wide font-bold border-r-2 border-white transition-all ${
+					class={`font-mono text-sm transition-all ${
 						currentPath === link.href
-							? 'bg-white text-black'
-							: 'hover:bg-white hover:text-black'
+							? 'text-green-400'
+							: 'text-white hover:text-green-400'
 					}`}
 				>
-					{link.label}
+					[{link.label}]
 				</a>
 			))}
+		</div>
+		<div class="font-mono text-sm border-t border-gray-700 pt-2">
+			<span class="text-green-400">guest</span>@<span class="text-blue-400">misery.systems</span>:<span class="text-blue-300">~{currentPath}</span>$ cat page.md
 		</div>
 	</div>
 </nav>

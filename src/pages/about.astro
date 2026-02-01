@@ -22,45 +22,35 @@ const topPosition = runtimeEnv.nodeName
 ---
 
 <Layout>
-  <div class="space-y-8">
-    <section class="border-2 border-white p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <div>
-          <h1>About</h1>
-          <p>
-            <strong>misery.systems</strong> is just my homelab.
-          </p>
-          <p>
-            I run random stuff here and mess with kubernetes and linux.
-          </p>
-          <p>
-            It's mostly for learning, breaking things, and fixing them (sometimes).
-          </p>
-        </div>
-        
-        <div>
-          <div class="mb-4 text-sm uppercase tracking-wide">
-            Served by: <span class="bg-white text-black px-2 py-1">{displayNames[runtimeEnv.nodeName ?? '???']}</span>
-          </div>
-          
-          <div class="relative">
-            <img
-              src="/rack-min.jpg"
-              alt="Homelab rack with servers" 
-              class="w-full aspect-square object-cover animate-image-fade"
-              loading="eager" 
-            />
-            {runtimeEnv.nodeName && (
-              <div 
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-2 py-1 border-2 border-white font-bold text-xs uppercase tracking-wide whitespace-nowrap z-10 opacity-0 animate-fade-in"
-                style={`top: ${topPosition}%;`}
-              >
-                &lt; You are here &gt;
-              </div>
-            )}
-          </div>
-        </div>
+  <h1>About</h1>
+  <p>
+    <strong>misery.systems</strong> is just my homelab.
+  </p>
+  <p>
+    I run random stuff here and mess with kubernetes and linux.
+  </p>
+  <p>
+    It's mostly for learning, breaking things, and fixing them (sometimes).
+  </p>
+
+  <p class="text-sm uppercase tracking-wide mt-8 mb-4">
+    Served by: <span class="bg-white text-black px-2 py-1">{displayNames[runtimeEnv.nodeName ?? '???']}</span>
+  </p>
+
+  <div class="relative mt-8" style="max-width: 400px;">
+    <img
+      src="/rack-min.jpg"
+      alt="Homelab rack with servers" 
+      class="w-full aspect-square object-cover animate-image-fade"
+      loading="eager" 
+    />
+    {runtimeEnv.nodeName && (
+      <div 
+        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-2 py-1 border-2 border-white font-bold text-xs uppercase tracking-wide whitespace-nowrap z-10 opacity-0 animate-fade-in"
+        style={`top: ${topPosition}%;`}
+      >
+        &lt; You are here &gt;
       </div>
-    </section>
+    )}
   </div>
 </Layout>

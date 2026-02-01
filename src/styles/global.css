@@ -177,6 +177,23 @@
 }
 
 @layer components {
+  .markdown-file {
+    border: 2px solid var(--color-border-dim);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .markdown-comment {
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    background: var(--color-bg);
+    padding: 0 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
   .block-box {
     border: 2px solid var(--color-fg);
     background: var(--color-bg);
