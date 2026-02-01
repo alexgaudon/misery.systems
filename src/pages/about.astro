@@ -4,9 +4,9 @@ import Layout from "./layout.astro";
 const runtimeEnv = getRuntimeEnv();
 
 const nodePositions: Record<string, number> = {
-	"k8s-worker-1": 63,
-	"k8s-worker-2": 77,
-	"k8s-worker-3": 90,
+	"k8s-worker-1": 61,
+	"k8s-worker-2": 75,
+	"k8s-worker-3": 89,
 };
 
 const displayNames: Record<string, string> = {
@@ -47,12 +47,12 @@ const topPosition = runtimeEnv.nodeName
             <img
               src="/rack-min.jpg"
               alt="Homelab rack with servers" 
-              class="w-full animate-image-fade"
+              class="w-full aspect-square object-cover animate-image-fade"
               loading="eager" 
             />
             {runtimeEnv.nodeName && (
               <div 
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-3 py-2 border-2 border-white font-bold text-xs uppercase tracking-wide whitespace-nowrap z-10 opacity-0 animate-fade-in"
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-2 py-1 border-2 border-white font-bold text-xs uppercase tracking-wide whitespace-nowrap z-10 opacity-0 animate-fade-in"
                 style={`top: ${topPosition}%;`}
               >
                 &lt; You are here &gt;
