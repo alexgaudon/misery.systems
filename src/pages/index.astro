@@ -4,11 +4,31 @@ import Layout from "./layout.astro";
 ---
 
 <Layout>
-  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
-    <p><strong style="color:var(--cat-peach)">misery.systems</strong> is the affectionate name for my homelab.</p>
-    <p>It's a collection of projects and tools that I've built or am working on.</p>
-    <p>I chose the name when I added a Kubernetes cluster to my homelab.</p>
-    <p>For people with Kubernetes experience, that might make sense.</p>
-    <p>But it's a reference to the fact that Kubernetes is often a source of misery.</p>
+  <div class="space-y-3 text-lg" style="color: var(--cat-text);">
+    <p>
+      <strong style="color: var(--cat-peach);">misery.systems</strong> is what I
+      (affectionately) call my homelab.
+    </p>
+
+    <p>
+      It’s a small virtualized Kubernetes cluster. Specifically Talos running on three
+      Proxmox nodes. I use it for learning, testing, and hosting a few personal
+      projects.
+    </p>
+
+    <p>
+      I wanted a name that was short and kind of funny, and I was out of better
+      ideas. There’s a long-running joke that Kubernetes can be a source of
+      misery for its users.
+    </p>
+
+    <p>
+      The individual nodes (as seen on the
+      <Link href="/about" brackets={false}>about page</Link>) came from asking ChatGPT for
+      “misery-themed homelab hostnames” and picking the first three that were
+      short, single words.
+    </p>
+
+    <p>If you’ve spent time with Kubernetes, that might be relatable.</p>
   </div>
 </Layout>

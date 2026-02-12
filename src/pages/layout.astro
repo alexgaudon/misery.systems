@@ -76,6 +76,9 @@ const currentPage =
     <main class="bg-[var(--cat-base)] p-6 min-h-screen overflow-y-auto font-mono text-[var(--cat-text)]" style="font-family:'JetBrains Mono', monospace;color:var(--cat-text)">
       <div class="mx-auto max-w-3xl">
         <slot />
+        <footer style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--cat-overlay-0); text-align: center; font-size: 0.75rem; color: var(--cat-overlay-1);">
+          not a cry for help. just a joke.
+        </footer>
       </div>
     </main>
 
@@ -102,7 +105,9 @@ const currentPage =
       });
 
       document.querySelectorAll('.terminal-link').forEach(link => {
-        link.textContent = `[${link.textContent?.trim()}]`;
+        const shouldAddBrackets = link.getAttribute('data-brackets') !== 'false';
+        const text = link.textContent?.trim();
+        link.textContent = shouldAddBrackets ? `[${text}]` : text;
       });
     </script>
   </body>
