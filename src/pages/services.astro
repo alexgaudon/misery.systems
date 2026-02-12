@@ -1,77 +1,30 @@
 ---
-import StarIcon from "../components/StarIcon.astro";
 import Layout from "./layout.astro";
+import Link from "../components/Link.astro";
 ---
 
 <Layout>
-  <h1>Services</h1>
-  <p>
-    This is the services page for misery.systems.
-  </p>
-  <p>
-    Here you can find all the services that I'm hosting on my homelab.
-  </p>
+  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
+    <p>This is the services page for misery.systems.</p>
+    <p>Here you can find all the services I'm hosting on my homelab.</p>
+  </div>
 
-  <h2>Self-Hosted Services</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/AlexGaudon/tallyo" target="_blank" rel="noopener noreferrer">Tallyo</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - Personal finance tracker (RIP Mint)</span>
-    </li>
-    <li>
-      <a href="https://github.com/AlexGaudon/overs.sh" target="_blank" rel="noopener noreferrer">overs.sh</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - File transfer tool over SSH</span>
-    </li>
-    <li>
-      <a href="https://github.com/AlexGaudon/misery.systems" target="_blank" rel="noopener noreferrer">misery.systems</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - This website</span>
-    </li>
-    <li>
-      <a href="https://github.com/AlexGaudon/stocky" target="_blank" rel="noopener noreferrer">stocky</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - Discord bot for stock prices</span>
-    </li>
-    <li>
-      <a href="https://github.com/alexgaudon/ntfy-bridge" target="_blank" rel="noopener noreferrer">ntfy-bridge</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - Discord to ntfy.sh bridge</span>
-    </li>
-    <li>
-      <a href="https://github.com/alexgaudon/lootsheet" target="_blank" rel="noopener noreferrer">lootsheet</a>
-      <span class="ml-2"><StarIcon /></span>
-      <span class="text-muted"> - Tibia loot splitter</span>
-    </li>
-    <li>
-      <a href="https://sonarr.tv/" target="_blank" rel="noopener noreferrer">Sonarr</a>
-      <span class="text-muted"> - TV series management</span>
-    </li>
-    <li>
-      <a href="https://radarr.video/" target="_blank" rel="noopener noreferrer">Radarr</a>
-      <span class="text-muted"> - Movie collection management</span>
-    </li>
-    <li>
-      <a href="https://www.bazarr.media/" target="_blank" rel="noopener noreferrer">Bazarr</a>
-      <span class="text-muted"> - Subtitle management</span>
-    </li>
-    <li>
-      <a href="https://jellyfin.org/" target="_blank" rel="noopener noreferrer">Jellyfin</a>
-      <span class="text-muted"> - Media server</span>
-    </li>
-    <li>
-      <a href="https://www.truenas.com/" target="_blank" rel="noopener noreferrer">TrueNAS</a>
-      <span class="text-muted"> - NAS storage</span>
-    </li>
-    <li>
-      <a href="https://immich.app/" target="_blank" rel="noopener noreferrer">immich</a>
-      <span class="text-muted"> - Photo/video backup</span>
-    </li>
-  </ul>
+  <div class="space-y-3 mt-6 text-lg" style="color:var(--cat-text);">
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/tallyo">Tallyo</Link></span> – Personal finance tracker (RIP Mint)</p>
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/overs.sh">overs.sh</Link></span> – File transfer tool over SSH</p>
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/misery.systems">misery.systems</Link></span> – This website</p>
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/stocky">stocky</Link></span> – Discord bot for stock prices</p>
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/alexgaudon/ntfy-bridge">ntfy-bridge</Link></span> – Discord to ntfy.sh bridge</p>
+    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/alexgaudon/lootsheet">lootsheet</Link></span> – Tibia loot splitter</p>
+    <p><Link href="https://sonarr.tv/">Sonarr</Link> – TV series management</p>
+    <p><Link href="https://radarr.video/">Radarr</Link> – Movie collection management</p>
+    <p><Link href="https://www.bazarr.media/">Bazarr</Link> – Subtitle management</p>
+    <p><Link href="https://jellyfin.org/">Jellyfin</Link> – Media server</p>
+    <p><Link href="https://www.truenas.com/">TrueNAS</Link> – NAS storage</p>
+    <p><Link href="https://immich.app/">immich</Link> – Photo/video backup</p>
+  </div>
 
-  <p class="text-center mt-8">
-    <span class="mr-2"><StarIcon /></span>
-    <span class="text-muted uppercase tracking-wide text-sm">means I built it</span>
+  <p class="mt-6 text-sm" style="color:var(--cat-overlay-2);">
+    <span style="color: var(--cat-teal)">★</span> means I built it
   </p>
 </Layout>

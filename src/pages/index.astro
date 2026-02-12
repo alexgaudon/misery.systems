@@ -1,26 +1,14 @@
 ---
+import Link from "../components/Link.astro";
 import Layout from "./layout.astro";
 ---
 
 <Layout>
-  <h1>What is misery.systems?</h1>
-  <p>
-    misery.systems is the affectionate name for my homelab.
-  </p>
-  <p>
-    It's a collection of projects and tools that I've built or am working on.
-  </p>
-
-  <hr />
-
-  <h2>Why misery.systems?</h2>
-  <p>
-    misery.systems was chosen when I decided to add a Kubernetes cluster to my homelab.
-  </p>
-  <p>
-    For people with experience in Kubernetes, that might make sense.
-  </p>
-  <p>
-    But it's a reference to the fact that Kubernetes is a complex system that is often a source of misery.
-  </p>
+  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
+    <p><strong style="color:var(--cat-peach)">misery.systems</strong> is the affectionate name for my homelab.</p>
+    <p>It's a collection of projects and tools that I've built or am working on.</p>
+    <p>I chose the name when I added a Kubernetes cluster to my homelab.</p>
+    <p>For people with Kubernetes experience, that might make sense.</p>
+    <p>But it's a reference to the fact that Kubernetes is often a source of misery.</p>
+  </div>
 </Layout>

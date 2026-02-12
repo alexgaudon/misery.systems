@@ -4,51 +4,45 @@ import Layout from "./layout.astro";
 const runtimeEnv = getRuntimeEnv();
 
 const nodePositions: Record<string, number> = {
-	"k8s-worker-1": 61,
-	"k8s-worker-2": 75,
-	"k8s-worker-3": 89,
+  "k8s-worker-1": 58,
+  "k8s-worker-2": 72,
+  "k8s-worker-3": 86,
 };
 
 const displayNames: Record<string, string> = {
-	"k8s-worker-1": "bleak",
-	"k8s-worker-2": "distress",
-	"k8s-worker-3": "sorrow",
-	"???": "magic",
+  "k8s-worker-1": "bleak",
+  "k8s-worker-2": "distress",
+  "k8s-worker-3": "sorrow",
+  "???": "magic",
 };
 
 const topPosition = runtimeEnv.nodeName
-	? (nodePositions[runtimeEnv.nodeName] ?? 50)
-	: 50;
+  ? (nodePositions[runtimeEnv.nodeName] ?? 50)
+  : 50;
 ---
 
 <Layout>
-  <h1>About</h1>
-  <p>
-    <strong>misery.systems</strong> is just my homelab.
-  </p>
-  <p>
-    I run random stuff here and mess with kubernetes and linux.
-  </p>
-  <p>
-    It's mostly for learning, breaking things, and fixing them (sometimes).
+  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
+    <p><strong>misery.systems</strong> is just my homelab.</p>
+    <p>I run random stuff here and mess with kubernetes and linux.</p>
+    <p>It's mostly for learning, breaking things, and fixing them (sometimes).</p>
+  </div>
+
+  <p class="mt-6">
+    <span style="color: var(--cat-mauve)">
+      Served by: {displayNames[runtimeEnv.nodeName ?? '???']}
+    </span>
   </p>
 
-  <p class="text-sm uppercase tracking-wide mt-8 mb-4">
-    Served by: <span class="bg-white text-black px-2 py-1">{displayNames[runtimeEnv.nodeName ?? '???']}</span>
-  </p>
-
-  <div class="relative mt-8" style="max-width: 400px;">
+  <div style="position: relative; max-width: 400px; margin-top: 1.5rem;">
     <img
       src="/rack-min.jpg"
-      alt="Homelab rack with servers" 
-      class="w-full aspect-square object-cover animate-image-fade"
-      loading="eager" 
+      alt="Homelab rack with servers"
+      loading="eager"
+      style="border-radius: 4px; width: 100%;"
     />
     {runtimeEnv.nodeName && (
-      <div 
-        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-2 py-1 border-2 border-white font-bold text-xs uppercase tracking-wide whitespace-nowrap z-10 opacity-0 animate-fade-in"
-        style={`top: ${topPosition}%;`}
-      >
+      <div style={`position: absolute; left: 50%; transform: translateX(-50%); top: ${topPosition}%; background: var(--cat-mauve); color: var(--cat-crust); padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;`}>
         &lt; You are here &gt;
       </div>
     )}

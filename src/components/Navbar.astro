@@ -1,37 +1,48 @@
 ---
 interface Props {
-	currentPath: string;
+  currentPath?: string;
 }
 
-const { currentPath } = Astro.props;
+const { currentPath = "/" } = Astro.props;
 
-const filePath = currentPath === '/' ? 'index.md' : currentPath.split('/').filter(Boolean).pop() + '.md';
-
-const navLinks = [
-	{ href: "/", label: "index" },
-	{ href: "/about", label: "about" },
-	{ href: "/services", label: "services" },
+const navItems = [
+  { href: "/", label: "Home", section: "General" },
+  { href: "/about", label: "About", section: "General" },
+  { href: "/services", label: "Services", section: "General" },
 ];
+
+const currentSection = navItems.find(item => item.href === currentPath)?.section || "General";
 ---
 
-<nav class="border-b-2 border-white bg-black">
-	<div class="max-w-3xl mx-auto px-4 py-2">
-		<div class="flex gap-4 mb-2">
-			{navLinks.map((link) => (
-				<a
-					href={link.href}
-					class={`font-mono text-sm transition-all ${
-						currentPath === link.href
-							? 'text-green-400'
-							: 'text-white hover:text-green-400'
-					}`}
-				>
-					[{link.label}]
-				</a>
-			))}
-		</div>
-		<div class="font-mono text-sm border-t border-gray-700 pt-2">
-			<span class="text-green-400">guest</span>@<span class="text-blue-400">misery.systems</span>:<span class="text-blue-300">~{currentPath}</span>$ cat page.md
-		</div>
-	</div>
+<nav class="sidebar" id="sidebar">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">×</button>
+  <a href="/" class="site-title">misery.systems</a>
+
+  <div class="nav-links">
+    <div class="nav-section-title">General</div>
+    <a href="/" class:list={["nav-link", { active: currentPath === "/" }]}>
+      Home
+    </a>
+    <a href="/about" class:list={["nav-link", { active: currentPath === "/about" }]}>
+      About
+    </a>
+    <a href="/services" class:list={["nav-link", { active: currentPath === "/services" }]}>
+      Services
+    </a>
+  </div>
+
+  <div class="nav-links" style="margin-top: auto; padding-top: 2rem;">
+    <div class="nav-section-title">Quick Links</div>
+    <a href="https://github.com/AlexGaudon" target="_blank" rel="noopener noreferrer" class="nav-link">
+      GitHub
+    </a>
+    <a href="https://alexgaudon.dev" target="_blank" rel="noopener noreferrer" class="nav-link">
+      Main Site
+    </a>
+  </div>
 </nav>
+
+<header class="mobile-header">
+  <a href="/" class="site-title" style="margin: 0;">misery.systems</a>
+  <button class="mobile-menu-btn" id="mobileMenuBtn">Menu</button>
+</header>
