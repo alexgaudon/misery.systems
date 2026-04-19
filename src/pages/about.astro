@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import { getRuntimeEnv } from "../lib/runtimeEnv";
 import Layout from "./layout.astro";
 const runtimeEnv = getRuntimeEnv();
@@ -13,7 +14,7 @@ const displayNames: Record<string, string> = {
   "k8s-worker-1": "bleak",
   "k8s-worker-2": "distress",
   "k8s-worker-3": "sorrow",
-  "???": "magic",
+  "??": "magic",
 };
 
 const topPosition = runtimeEnv.nodeName
@@ -22,28 +23,30 @@ const topPosition = runtimeEnv.nodeName
 ---
 
 <Layout>
-  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
-    <p><strong>misery.systems</strong> is just my homelab.</p>
-    <p>I run random stuff here and mess with kubernetes and linux.</p>
-    <p>It's mostly for learning, breaking things, and fixing them (sometimes).</p>
+  <p><span class="accent">misery.systems</span> is just my homelab.</p>
+  
+  <p>I run random stuff here and mess with kubernetes and linux.</p>
+  
+  <p>It's mostly for learning, breaking things, and fixing them (sometimes).</p>
+
+  <div class="box">
+    <div class="box-title">connection info</div>
+    <p>
+      served by: <span class="accent">{displayNames[runtimeEnv.nodeName ?? '??']}</span>
+    </p>
   </div>
 
-  <p class="mt-6">
-    <span style="color: var(--cat-mauve)">
-      Served by: {displayNames[runtimeEnv.nodeName ?? '???']}
-    </span>
-  </p>
-
-  <div style="position: relative; max-width: 400px; margin-top: 1.5rem;">
+  <div class="img-container">
     <img
       src="/rack-min.jpg"
       alt="Homelab rack with servers"
       loading="eager"
-      style="border-radius: 4px; width: 100%;"
+      width="3590"
+      height="3595"
     />
     {runtimeEnv.nodeName && (
-      <div style={`position: absolute; left: 50%; transform: translateX(-50%); top: ${topPosition}%; background: var(--cat-mauve); color: var(--cat-crust); padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;`}>
-        &lt; You are here &gt;
+      <div class="img-label" style={`top: ${topPosition}%; left: 50%; transform: translate(-50%, -50%);`}>
+        &lt; you are here &gt;
       </div>
     )}
   </div>

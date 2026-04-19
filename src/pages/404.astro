@@ -1,42 +1,19 @@
 ---
+import "../styles/global.css";
 import Layout from "./layout.astro";
 ---
+
 <Layout>
-  <div class="space-y-8">
-    <section class="border-2 border-white p-6">
-      <h1>404 - Page Not Found</h1>
-      <p>
-        The page you're looking for doesn't exist.
-      </p>
-    </section>
-
-    <div class="text-center text-sm tracking-widest">+ + +</div>
-
-    <section class="border-2 border-white p-6">
-      <h2>What happened?</h2>
-      <p>
-        You might have mistyped the URL, or the page has been moved or deleted.
-      </p>
-      <p>
-        This is part of the misery that comes with running a homelab.
-      </p>
-    </section>
-
-    <div class="text-center text-sm tracking-widest">+ + +</div>
-
-    <section class="border-2 border-white p-6">
-      <h2>What now?</h2>
-      <ul class="block-list">
-        <li>
-          <a href="/">Go back to the home page</a>
-        </li>
-        <li>
-          <a href="/about">Learn more about misery.systems</a>
-        </li>
-        <li>
-          <a href="/services">Check out the services</a>
-        </li>
-      </ul>
-    </section>
+  <div class="box">
+    <div class="box-title">error 404</div>
+    <p>page not found</p>
   </div>
+
+  <p>the page you're looking for doesn't exist.</p>
+
+  <p>you might have mistyped the URL, or the page has been moved or deleted.</p>
+
+  <p>this is part of the misery that comes with running a homelab.</p>
+
+  <p><a href="/">&lt;- go home</a></p>
 </Layout>

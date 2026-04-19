@@ -1,30 +1,48 @@
 ---
+import "../styles/global.css";
 import Layout from "./layout.astro";
-import Link from "../components/Link.astro";
 ---
 
 <Layout>
-  <div class="space-y-3 text-lg" style="color:var(--cat-text);">
-    <p>This is the services page for misery.systems.</p>
-    <p>Here you can find all the services I'm hosting on my homelab.</p>
-  </div>
+  <p>Stuff running on the cluster:</p>
 
-  <div class="space-y-3 mt-6 text-lg" style="color:var(--cat-text);">
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/tallyo">Tallyo</Link></span> – Personal finance tracker (RIP Mint)</p>
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/overs.sh">overs.sh</Link></span> – File transfer tool over SSH</p>
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/misery.systems">misery.systems</Link></span> – This website</p>
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/stocky">stocky</Link></span> – Discord bot for stock prices</p>
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/alexgaudon/ntfy-bridge">ntfy-bridge</Link></span> – Discord to ntfy.sh bridge</p>
-    <p><span style="color: var(--cat-teal)"><Link href="https://github.com/alexgaudon/lootsheet">lootsheet</Link></span> – Tibia loot splitter</p>
-    <p><Link href="https://sonarr.tv/">Sonarr</Link> – TV series management</p>
-    <p><Link href="https://radarr.video/">Radarr</Link> – Movie collection management</p>
-    <p><Link href="https://www.bazarr.media/">Bazarr</Link> – Subtitle management</p>
-    <p><Link href="https://jellyfin.org/">Jellyfin</Link> – Media server</p>
-    <p><Link href="https://www.truenas.com/">TrueNAS</Link> – NAS storage</p>
-    <p><Link href="https://immich.app/">immich</Link> – Photo/video backup</p>
-  </div>
+  <dl>
+    <dt><a href="https://github.com/AlexGaudon/tallyo">tallyo</a></dt>
+    <dd>personal finance tracker (RIP Mint) <span class="accent">*</span></dd>
 
-  <p class="mt-6 text-sm" style="color:var(--cat-overlay-2);">
-    <span style="color: var(--cat-teal)">★</span> means I built it
-  </p>
+    <dt><a href="https://github.com/AlexGaudon/overs.sh">overs.sh</a></dt>
+    <dd>file transfer tool over SSH <span class="accent">*</span></dd>
+
+    <dt><a href="https://github.com/AlexGaudon/misery.systems">misery.systems</a></dt>
+    <dd>this website <span class="accent">*</span></dd>
+
+    <dt><a href="https://github.com/AlexGaudon/stocky">stocky</a></dt>
+    <dd>discord bot for stock prices <span class="accent">*</span></dd>
+
+    <dt><a href="https://github.com/alexgaudon/ntfy-bridge">ntfy-bridge</a></dt>
+    <dd>discord to ntfy.sh bridge <span class="accent">*</span></dd>
+
+    <dt><a href="https://github.com/alexgaudon/lootsheet">lootsheet</a></dt>
+    <dd>tibia loot splitter <span class="accent">*</span></dd>
+
+    <dt><a href="https://sonarr.tv/">sonarr</a></dt>
+    <dd>TV series management</dd>
+
+    <dt><a href="https://radarr.video/">radarr</a></dt>
+    <dd>movie collection management</dd>
+
+    <dt><a href="https://www.bazarr.media/">bazarr</a></dt>
+    <dd>subtitle management</dd>
+
+    <dt><a href="https://jellyfin.org/">jellyfin</a></dt>
+    <dd>media server</dd>
+
+    <dt><a href="https://www.truenas.com/">truenas</a></dt>
+    <dd>NAS storage</dd>
+
+    <dt><a href="https://immich.app/">immich</a></dt>
+    <dd>photo/video backup</dd>
+  </dl>
+
+  <p class="muted"><span class="accent">*</span> = i built it</p>
 </Layout>
