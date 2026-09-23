@@ -1,0 +1,114 @@
+---
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import Rule from "../components/Rule.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>misery.systems</title>
+    <meta name="description" content="misery.systems - my homelab" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {currentPath === "/about" && <link rel="preload" href="/rack-min.jpg" as="image" />}
+    <script is:inline>
+      try {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("js-type");
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <Header />
+
+      <Rule />
+
+      <Nav />
+
+      <Rule />
+
+      <main>
+        <slot />
+      </main>
+
+      <Rule />
+
+      <Footer />
+    </div>
+
+    <script>
+      const docEl = document.documentElement;
+      const container = document.querySelector<HTMLElement>(".container");
+      const logo = document.querySelector<HTMLElement>(".logo");
+
+      function fitLogo() {
+        if (!container || !logo) return;
+        logo.style.fontSize = "";
+        const natural = logo.getBoundingClientRect().width;
+        const current = parseFloat(getComputedStyle(logo).fontSize);
+        if (!natural || !current) return;
+        const target = Math.min(15, ((container.clientWidth - 1) / natural) * current);
+        logo.style.fontSize = `${target.toFixed(2)}px`;
+      }
+
+      if (container && logo) {
+        fitLogo();
+        window.addEventListener("resize", fitLogo);
+      }
+
+      if (logo && docEl.classList.contains("js-type")) {
+        try {
+          const spans: HTMLElement[] = [];
+          const walker = document.createTreeWalker(logo, NodeFilter.SHOW_TEXT);
+          const textNodes: Text[] = [];
+          let node: Node | null;
+          while ((node = walker.nextNode())) {
+            if (node.nodeValue) textNodes.push(node as Text);
+          }
+
+          for (const textNode of textNodes) {
+            const frag = document.createDocumentFragment();
+            for (const ch of textNode.nodeValue ?? "") {
+              const span = document.createElement("span");
+              span.className = "tw";
+              span.textContent = ch;
+              frag.appendChild(span);
+              spans.push(span);
+            }
+            textNode.parentNode?.replaceChild(frag, textNode);
+          }
+
+          docEl.classList.add("type-ready");
+
+          const total = spans.length;
+          const duration = Math.min(2000, Math.max(700, total * 4));
+          const start = performance.now();
+          let i = 0;
+
+          const tick = (now: number) => {
+            const target = Math.floor(
+              Math.min(1, (now - start) / duration) * total,
+            );
+            while (i < target && i < total) {
+              spans[i].classList.add("on");
+              i++;
+            }
+            if (i < total) requestAnimationFrame(tick);
+          };
+
+          requestAnimationFrame(tick);
+        } catch {
+          docEl.classList.remove("js-type");
+        }
+      }
+    </script>
+  </body>
+</html>

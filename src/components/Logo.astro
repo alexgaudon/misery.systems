@@ -1,0 +1,15 @@
+---
+import art from "./logo.txt?raw";
+
+const lines = art.replace(/\n$/, "").split("\n");
+---
+
+<div class="logo" aria-hidden="true">
+  {
+    lines.map((line, i) => (
+      <span class="logo-line" style={`--line: ${i}`}>
+        {line}
+      </span>
+    ))
+  }
+</div>

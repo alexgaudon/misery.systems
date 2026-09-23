@@ -1,7 +1,6 @@
 ---
-import "../styles/global.css";
 import { getRuntimeEnv } from "../lib/runtimeEnv";
-import Layout from "./layout.astro";
+import Layout from "../layouts/Layout.astro";
 const runtimeEnv = getRuntimeEnv();
 
 const nodePositions: Record<string, number> = {

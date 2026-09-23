@@ -8,13 +8,11 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: [".dev.amgau.xyz"],
+    },
   },
   integrations: [],
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp'
-    }
-  },
   adapter: node({
     mode: 'standalone',
   }),
