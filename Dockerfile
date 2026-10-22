@@ -1,4 +1,7 @@
-FROM node:22-alpine AS base
+# Node 22.23.4 fixes the October 2026 security releases (HIGH severity:
+# Brotli decoder OOB write, TLS hostname bypasses, dns.resolve NUL truncation).
+# See https://nodejs.org/en/blog/vulnerability/october-2026-security-releases
+FROM node:22.23.4-alpine AS base
 WORKDIR /app
 
 COPY package.json package-lock.json ./
